@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <head>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+  </head>
+  <body>
+    <h1>Test with iFrame</h1>
+
+    <div style="margin-left: 20vw">
+      <iframe
+        id="myiframe"
+        src="./zavicefta.pdf"
+        height="600px"
+        width="800px"
+        loading="lazy"
+        title="PDF-file"
+      ></iframe>
+
+      <script>
+        $(document).ready(function () {
+          $("#myiframe").on("load", function () {
+            console.log("a");
+            var iFrameBody = $(this);
+
+            console.log(iFrameBody);
+            $(this)
+              .contents()
+              .scroll(function () {
+                console.log("aaa");
+              });
+            // iFrameBody.on("scroll", function () {
+            //   console.log(
+            //     "Se ha detectado un evento de desplazamiento en el iframe."
+            //   );
+            // });
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
